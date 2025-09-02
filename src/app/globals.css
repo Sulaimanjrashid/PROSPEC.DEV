@@ -1,0 +1,442 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  color-scheme: dark; /* Force dark scrollbars in Safari */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: dark; /* Ensure dark color scheme for Safari */
+  }
+  body {
+    @apply bg-background text-foreground;
+    color-scheme: dark; /* Force dark scrollbars in Safari */
+  }
+}
+
+/* Custom slider styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #f97316;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #ea580c;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.slider::-moz-range-track {
+  background: #374151;
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.slider::-moz-range-thumb {
+  background: #f97316;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
+  transition: all 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #ea580c;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+/* Mobile optimizations for better screen real estate usage */
+
+/* Prevent iOS zoom on input focus */
+@media screen and (max-device-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+/* Mobile-specific spacing and layout optimizations */
+@media screen and (max-width: 768px) {
+  /* Reduce excessive margins and padding */
+  .mobile-optimized {
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  /* Optimize card spacing */
+  .mobile-card {
+    margin: 0.25rem 0;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  /* Optimize form fields */
+  .mobile-input {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px; /* Touch target size */
+  }
+
+  /* Optimize buttons for touch */
+  .mobile-button {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    box-sizing: border-box;
+  }
+
+  /* Optimize text areas */
+  .mobile-textarea {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  /* Optimize select dropdowns */
+  .mobile-select {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  /* Ensure proper touch targets */
+  button, input, select, textarea {
+    min-height: 44px;
+  }
+
+  /* Optimize text sizing for mobile */
+  .mobile-text-sm {
+    font-size: 0.875rem !important;
+  }
+
+  .mobile-text-xs {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* iPhone specific optimizations */
+@media screen and (max-width: 414px) {
+  /* Extra optimization for smaller screens */
+  .mobile-optimized {
+    padding: 0.25rem;
+  }
+
+  .mobile-card {
+    margin: 0.125rem 0;
+    padding: 0.5rem;
+  }
+
+  /* Reduce font sizes for very small screens */
+  .mobile-text-xs {
+    font-size: 0.6875rem !important;
+  }
+}
+
+/* Optimize for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  button:hover {
+    transform: none;
+  }
+  
+  /* Increase touch targets */
+  button, input, select, textarea, a {
+    min-height: 44px;
+  }
+}
+
+/* Custom scrollbar styles to match PROSPEC theme */
+/* Force scrollbars to always be visible on WebKit browsers (Chrome, Safari, Edge) */
+html {
+  overflow-y: scroll; /* Force vertical scrollbar to always be present */
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  -webkit-appearance: none; /* Remove default Safari styling */
+}
+
+::-webkit-scrollbar-track {
+  background: #262626; /* neutral-800 */
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* Add shadow for Safari */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040; /* neutral-700 */
+  border-radius: 6px;
+  border: 2px solid #262626; /* neutral-800 */
+  transition: all 0.3s ease;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); /* Safari shadow */
+  min-height: 30px; /* Ensure minimum thumb size */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316; /* orange-500 */
+  border: 2px solid #262626; /* neutral-800 */
+  -webkit-box-shadow: inset 0 0 6px rgba(249, 115, 22, 0.3); /* Orange shadow */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #ea580c; /* orange-600 */
+  -webkit-box-shadow: inset 0 0 6px rgba(234, 88, 12, 0.5); /* Darker orange shadow */
+}
+
+::-webkit-scrollbar-corner {
+  background: #262626; /* neutral-800 */
+}
+
+/* Safari-specific scrollbar enhancements */
+::-webkit-scrollbar-track:window-inactive {
+  background: #1a1a1a; /* Darker when window is inactive */
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #2a2a2a; /* Darker thumb when window is inactive */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 #262626; /* thumb track */
+}
+
+/* Hover state for Firefox */
+*:hover {
+  scrollbar-color: #f97316 #262626; /* orange thumb on hover */
+}
+
+/* Custom scrollbar for specific containers */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #262626;
+  /* Force scrollbar visibility on Safari */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS Safari */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  -webkit-appearance: none; /* Remove Safari defaults */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #262626;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 4px;
+  border: 1px solid #262626;
+  -webkit-box-shadow: inset 0 0 3px rgba(249, 115, 22, 0.3);
+  min-height: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+  -webkit-box-shadow: inset 0 0 3px rgba(234, 88, 12, 0.5);
+}
+
+/* Thin scrollbar variant */
+.thin-scrollbar {
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS Safari */
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  -webkit-appearance: none; /* Remove Safari defaults */
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+  min-height: 15px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+  -webkit-box-shadow: inset 0 0 2px rgba(249, 115, 22, 0.3);
+}
+
+/* Safari system preference override */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Target WebKit browsers specifically */
+  ::-webkit-scrollbar {
+    -webkit-appearance: none !important;
+  }
+  
+  /* Force scrollbar visibility in Safari regardless of system preferences */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Force dark color scheme for all elements in Safari */
+  html, body, * {
+    color-scheme: dark !important;
+  }
+  
+  /* Additional Safari-specific dark mode enforcement */
+  :root {
+    color-scheme: dark !important;
+    -webkit-color-scheme: dark !important;
+  }
+}

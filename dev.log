@@ -1,0 +1,64 @@
+
+> prospec-app@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/suli/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/suli/Desktop/PROSPEC/prospec-app/package-lock.json
+
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.12.155:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 857ms
+ ○ Compiling /api/test-gemini ...
+ ✓ Compiled /api/test-gemini in 1011ms
+[Test Gemini] Testing Gemini 2.5 Flash API...
+[Test Gemini] Making API request...
+[Test Gemini] Response status: 200
+[Test Gemini] Response received: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Hello! Yes, I can access Google Search."
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0,
+      "groundingMetadata": {}
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 9,
+    "candidatesTokenCount": 10,
+    "totalTokenCount": 71,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 9
+      }
+    ],
+    "thoughtsTokenCount": 52
+  },
+  "modelVersion": "gemini-2.5-flash",
+  "responseId": "jh63aK3gAurGjMcP85D4gAg"
+}
+ GET /api/test-gemini 200 in 2298ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1400ms
+ GET / 200 in 1580ms
+ ⚠ Cross origin request detected from 192.168.12.155 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET / 200 in 117ms
+ ✓ Compiled in 192ms
+ ✓ Compiled in 155ms
+ ✓ Compiled in 134ms
