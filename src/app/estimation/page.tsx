@@ -7,12 +7,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import EstimationResults from "@/components/estimation-results"
+import EstimationResults from "@/components/features/estimation/estimation-results"
 import { useState, useEffect, useCallback } from "react"
 import { Command, CornerDownLeft } from "lucide-react"
 import { generateProjectEstimation, type EstimationResponse } from "@/lib/gemini-api"
 
-export default function CommandCenterPage() {
+export default function EstimationPage() {
   const [showEstimation, setShowEstimation] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [estimationData, setEstimationData] = useState<EstimationResponse | null>(null)

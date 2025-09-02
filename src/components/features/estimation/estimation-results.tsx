@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Check, X, Plus, Minus } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import PricingResults from "./pricing-results"
+import PricingResults from "../pricing/pricing-results"
 import { searchHomeDepotPricing, type PricingResult as ServicePricingResult, type ProductOption } from "@/lib/serpapi-service"
 import APIRateLimiter from "@/lib/api-rate-limiter"
 

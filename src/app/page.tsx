@@ -1,7 +1,7 @@
 "use client"
 
-import MobileLayout from "@/components/mobile-layout"
+import Dashboard from "@/components/pages/dashboard"
 
 export default function TacticalDashboard() {
-  return <MobileLayout />
+  return <Dashboard />
 }

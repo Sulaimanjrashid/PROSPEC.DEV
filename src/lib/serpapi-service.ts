@@ -85,7 +85,7 @@ export async function searchHomeDepotPricing(
       }
     }
 
-    const response = await fetch("/api/search-pricing", {
+    const response = await fetch("/api/pricing/search", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -179,7 +179,7 @@ export async function fetchCompareOptions(
       }
     }
 
-    const response = await fetch("/api/compare-pricing", {
+    const response = await fetch("/api/pricing/compare", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

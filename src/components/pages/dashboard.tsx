@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react"
 import { Plus, Users, Smartphone, RefreshCw, Home, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import CommandCenterPage from "@/app/command-center/page"
-import AgentNetworkPage from "@/app/agent-network/page"
-import LandingPage from "@/app/landing-page"
-import PasswordProtection from "./password-protection"
+import EstimationPage from "@/app/estimation/page"
+import WaitlistPage from "@/app/waitlist/page"
+import LandingPage from "@/components/pages/landing"
+import PasswordProtection from "../password-protection"
 
-export default function MobileLayout() {
+export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("landing")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
@@ -221,8 +221,8 @@ export default function MobileLayout() {
         <div className="flex-1 overflow-auto">
           <div className={`min-h-full ${isMobile ? 'p-2 pb-16' : ''}`}>
             {activeSection === "landing" && <LandingPage onNavigateToProjects={() => setActiveSection("overview")} />}
-            {activeSection === "overview" && <CommandCenterPage />}
-            {activeSection === "agents" && <AgentNetworkPage />}
+            {activeSection === "overview" && <EstimationPage />}
+            {activeSection === "agents" && <WaitlistPage />}
           </div>
         </div>
 
