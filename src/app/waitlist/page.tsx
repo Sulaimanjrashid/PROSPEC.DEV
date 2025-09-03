@@ -22,14 +22,38 @@ import {
 export default function WaitlistPage() {
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email) {
-      // Here you would typically send the email to your backend
-      console.log("Email submitted:", email)
+    if (!email) return
+
+    setIsLoading(true)
+    setError("")
+
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to join waitlist')
+      }
+
       setIsSubmitted(true)
       setEmail("")
+    } catch (error) {
+      console.error('Error joining waitlist:', error)
+      setError(error instanceof Error ? error.message : 'Failed to join waitlist')
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -146,14 +170,23 @@ export default function WaitlistPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="pl-10 py-2 bg-neutral-800 border-neutral-600 text-white placeholder-neutral-400"
+                        disabled={isLoading}
+                        className="pl-10 py-2 bg-neutral-800 border-neutral-600 text-white placeholder-neutral-400 disabled:opacity-50"
                       />
                     </div>
+                    
+                    {error && (
+                      <div className="text-red-400 text-xs text-center bg-red-500/10 border border-red-500/20 rounded p-2">
+                        {error}
+                      </div>
+                    )}
+                    
                     <Button
                       type="submit"
-                      className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold tracking-wider py-2"
+                      disabled={isLoading || !email}
+                      className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-neutral-600 disabled:cursor-not-allowed text-white font-bold tracking-wider py-2"
                     >
-                      JOIN WAITLIST
+                      {isLoading ? "JOINING..." : "JOIN WAITLIST"}
                     </Button>
                     <div className="text-center space-y-1">
                       <p className="text-xs text-neutral-400">
